@@ -94,8 +94,8 @@
         ;link(href "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap", rel "stylesheet");
 
       ==
-      ;body.flex.align-center.py-6(style "animation: none !important")
-        ;main.p-4.max-w-3xl.mx-auto.space-y-6
+      ;body.flex.align-center.pt-6(style "animation: none !important")
+        ;main.p-4.max-w-3xl.mx-auto.space-y-6.overflow-auto
           ;h1.text-2xl: %aver
           ;p
             ; This is a place to post attestations that your star is willing to route for groundwire comets. 
@@ -137,7 +137,7 @@
           ::  and an input field for adding a new enemy
           ::
           ;*
-          ?:  &(| =(our.bowl source:aver))
+          ?:  =(our.bowl source:aver)
             ;=  ;h3: To attest, please install this desk on your star
                 ;code.p-2.font-mono.bg-gray-300.flex(style "background: linear-gradient(270deg, rgb(166 142 142 / 20%) 37%, rgb(158 170 184 / 20%) 81%)")
                   ; |install {(scow %p source:aver)} {<q.byk.bowl>}
