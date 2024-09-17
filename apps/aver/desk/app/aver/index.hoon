@@ -7,7 +7,111 @@
 =>  |%
     +$  fealty  fealty:aver
     +$  action  action:aver
-    --
+    ++  style
+      ^~   %-  trip
+      '''
+      body {
+        animation-name: drift;
+        animation-duration: 1.25s;
+        background: rgb(255,246,246);
+        background: linear-gradient(139deg, rgb(233 224 224) 37%, rgb(158 170 184) 81%);
+        font-family: 'Space Mono', monospace;
+        font-style: oblique;
+        overflow: hidden;
+      }
+
+      h1 {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 4em;
+          transform: rotate(0deg) skew(-5deg, 0);
+      }
+
+      .header {
+          position: relative;
+          z-index: 2;
+          display:block;
+      }
+
+      .logo {
+          display: block;
+          float: left;
+      }
+
+      .links {
+          display: block;
+          float: right;
+          padding: 1.5em;
+      }
+
+      .links span {
+          text-decoration: underline;
+          display: inline-block;
+          font-size: 1.05em;
+          padding: 0.6em;
+      }
+
+      .links a {
+          color: darkslateblue;
+          cursor:pointer;
+      }
+
+      .wrapper {
+          display: table;
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+      }
+
+      @keyframes drift {
+        0% { opacity: 0;}
+        100% { opacity: 1;}
+      }
+
+      .content {
+          display: table-cell;
+          vertical-align: middle;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      .description {
+          display:inline-block;
+          overflow:hidden;
+          white-space: nowrap;
+          margin: 0 auto;
+          border-right: .15em solid darkslateblue;
+          animation: typing 2.5s steps(50, end), blink .75s step-end infinite;
+          padding-right: 0.3em;
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 25% }
+      }
+
+      @keyframes blink {
+        from, to { border-color: transparent }
+        50% { border-color: darkslateblue; }
+      }
+
+      @media only screen and (max-device-width: 480px) {
+          body {
+              /* font-size: 2em; */
+          
+          }
+
+          .links {
+              font-size: 1em;
+              padding: 1em;
+          }
+
+          .description {
+              animation: none;
+              border-right: none;
+          }
+      }
+      '''
+      --
 ::  we cast our door to the desired page type. to construct that type,
 ::  we give it the type of data that the app passes in, and the type of user
 ::  actions on that data.
@@ -81,12 +185,12 @@
       ;head
         ;title: %aver
         ;style:"form \{ display: inline-block; } summary \{ cursor: pointer; margin-bottom: 12px; }"
+        ;style: {style}
 
         ;script(src "https://cdn.tailwindcss.com");
         ;meta(charset "utf-8");
         ;meta(name "viewport", content "width=device-width, initial-scale=1");
         ;meta(http-equiv "Content-Type", content "text/html; charset=utf-8");
-        ;link(href "https://www.archetype.computer/style.css", rel "stylesheet", type "text/css");
         ;link(type "font", href "https://fonts.googleapis.com/css?family=Space+Grotesk", rel "stylesheet");
         ;link(rel "preconnect", href "https://fonts.googleapis.com");
 

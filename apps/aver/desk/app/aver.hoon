@@ -44,7 +44,9 @@
     |=  =path
     ^-  (quip card _this)
     ?:  =(/latest path)
-      `this
+      ?>  ?=(%host -.sync)
+      :_  this
+      [%give %fact ~ atom/!>(case.sync)]^~
     ?.  ?=([%http-response *] path)
       (on-watch:def path)
     `this
