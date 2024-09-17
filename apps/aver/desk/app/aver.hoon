@@ -43,7 +43,8 @@
   ++  on-watch  
     |=  =path
     ^-  (quip card _this)
-    ~&  path/path
+    ?:  =(/latest path)
+      `this
     ?.  ?=([%http-response *] path)
       (on-watch:def path)
     `this
@@ -111,7 +112,6 @@
 ++  on-http-request
   |=  =order:rudder
   ^+  run
-  ~&  is-source/is-source
   :: ?>  =(our.bowl src.bowl)
   =;  r=(each _run tang) 
     ?:  ?=(%& -.r)
@@ -119,7 +119,6 @@
     %-  (slog leaf/"error on req" p.r)
     run
   %-  mule  |.
-  ~&  got-http-request/order
   =;  out=(quip card:agent:gall fealty:aver)
     =.  fealty  +.out
     (emil -.out)
