@@ -10,8 +10,7 @@
   $%  [%swear =ship =oath]
       [%rebuke =ship]
   ==
-++  source  ~zod
-::
+++  source  ~rapter-dactyl-hastuc-dibtux
 +$  sync
   $%  [%host case=@ud]
       [%load ~]

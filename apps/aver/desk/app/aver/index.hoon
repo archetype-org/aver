@@ -138,9 +138,9 @@
           ::
           ;*
           ?:  &(| =(our.bowl source:aver))
-            ;=  ;h3: To attest, please
+            ;=  ;h3: To attest, please install this desk on your star
                 ;code.p-2.font-mono.bg-gray-300.flex(style "background: linear-gradient(270deg, rgb(166 142 142 / 20%) 37%, rgb(158 170 184 / 20%) 81%)")
-                  ; |install ~dister-dister-hastuc-dibtux %aver
+                  ; |install {(scow %p source:aver)} {<q.byk.bowl>}
                 ==
             ==
 ::        ?:  (~(has by fealty) our.bowl)

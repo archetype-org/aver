@@ -1,6 +1,6 @@
 :~
   title+'aver'
-  info+'A cool app that does amazing things'
+  info+'Groundwire sponsor attestation server'
   color+0xd9.b06d
   version+[0 1 0]
   website+'https://urbit.org'

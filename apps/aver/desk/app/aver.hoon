@@ -141,11 +141,39 @@
         %unsign  ['revoked' abet-rud:on-unsign]
       ==
   ==
-++  support-msg  [our.bowl now.bowl 'This star supports the groundwire proposal and is willing to route for groundwire comets']
+++  support-msg  [her=our.bowl wen=now.bowl txt='This star supports the groundwire proposal and is willing to route for groundwire comets']
+++  get-her-keys
+  |=  her=@p 
+  ^-  (unit pass)
+  =+  .^(lyf=(unit life) %j /(scot %p our.bowl)/lyfe/(scot %da now.bowl)/(scot %p her))
+  ?~  lyf  ~
+  =-  `pass
+  .^([@ud =pass *] %j /(scot %p our.bowl)/deed/(scot %da now.bowl)/(scot %p her)/(scot %ud u.lyf))
+++  check-oath
+  |=  [=ship =oath:aver]
+  ?~  pas=(get-her-keys ship)
+    ~|  alien-swear/ship
+    !!
+  =/  =acru:ames  (com:nu:crub:crypto u.pas)
+  =/  res=(unit @ux)  (sure:as:acru sig.oath)
+  ?~  res
+    ~|(failed-verify/ship !!)
+  =+  ;;(f=[her=@p wen=@da msg=@t] (cue u.res))
+  ?&  =(her.f ship)
+      =(f +.oath)
+  ==
 ++  on-diff
   |=   =diff:aver
   ^+  run
-  run
+  ?>  =(our.bowl source:aver)
+  ?+    -.diff  ~|(%on-diff !!)
+      %swear
+    ?>  (check-oath [ship oath]:diff)
+    ?>  =(ship.diff src.bowl)
+    =.  fealty  (~(put by fealty) ship.diff oath.diff)
+    tell-update
+  ::
+  ==
 ++  on-sign
   ^+  run
   ~&  'attempt sign'
@@ -157,7 +185,7 @@
     run
   =+  ;;(f=faith:aver (cue u.ver))
   =.  fealty  (~(put by fealty) our.bowl [sign f])
-  run
+  (emit (do-diff %swear our.bowl [sign faith]))
 ++  on-unsign
   ^+  run
   =.  fealty  (~(del by fealty) our.bowl)
