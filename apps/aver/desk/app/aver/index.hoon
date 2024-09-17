@@ -143,12 +143,12 @@
                   ; |install {(scow %p source:aver)} {<q.byk.bowl>}
                 ==
             ==
-::        ?:  (~(has by fealty) our.bowl)
-::          ~
+          ?:  (~(has by fealty) our.bowl)
+            ~
           :_  ~
           ;form(method "post")
             ;button.p-2.bg-blue-300.rounded(type "submit", name "sign")
-              Sign attestation as {(scow %p ~hastuc)}
+              Sign attestation as {(scow %p our.bowl)}
             ==
           ==
         ==
